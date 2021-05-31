@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+
+	<title>Bootstrap breakpoint checker</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<style>
+        .current-bootstrap-breakpoint{
+	        background-color: #f9ffad;
+	        font-weight: bold;
+        }
+        @media (min-width: 1400px){
+            #aheadlabs-current-bootstrap-breakpoint::before{
+                content: "xxl";
+            }
+        }
+        @media (max-width: 1399px){
+            #aheadlabs-current-bootstrap-breakpoint::before{
+                content: "xl";
+            }
+        }
+        @media (max-width: 1199px){
+            #aheadlabs-current-bootstrap-breakpoint::before{
+                content: "lg";
+            }
+        }
+        @media (max-width: 991px){
+            #aheadlabs-current-bootstrap-breakpoint::before{
+                content: "md";
+            }
+        }
+        @media (max-width: 767px){
+            #aheadlabs-current-bootstrap-breakpoint::before{
+                content: "sm";
+            }
+        }
+        @media (max-width: 575px){
+            #aheadlabs-current-bootstrap-breakpoint::before{
+                content: "xs";
+            }
+        }
+	</style>
+</head>
+<body onresize="updateScreenSize()">
+	<h1>Bootstrap breakpoint checker</h1>
+	<div>Your current Bootstrap breakpoint is:
+		<ul>
+			<li>Bootstrap breakpoint: <span id="aheadlabs-current-bootstrap-breakpoint" class="current-bootstrap-breakpoint"></span></li>
+			<li>Screen width: <span id="aheadlabs-screen-x"></span> px</li>
+			<li>Screen height: <span id="aheadlabs-screen-y"></span> px</li>
+		</ul>
+	</div>
+
+
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+		function updateScreenSize(){
+            document.getElementById("aheadlabs-screen-x").innerText = window.innerWidth.toString();
+            document.getElementById("aheadlabs-screen-y").innerText = window.innerHeight.toString();
+		}
+
+		updateScreenSize();
+	</script>
+</body>
+</html>
